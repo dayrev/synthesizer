@@ -5,7 +5,7 @@ namespace DayRev\Synthesizer\Provider;
 use DayRev\Synthesizer\Provider;
 
 /**
- * Driver class that handles Google interactions.
+ * Driver class that handles Google API interactions.
  */
 class Google extends Provider
 {
