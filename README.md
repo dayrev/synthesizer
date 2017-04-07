@@ -18,7 +18,7 @@ composer require dayrev/synthesizer
 
 Alternatively, add `"dayrev/synthesizer": "^1.0"` to your composer.json file.
 
-##Usage
+## Usage
 ```php
 $synthesizer = DayRev\Synthesizer\Provider::instance('google');
 $content = $synthesizer->synthesize($text);
