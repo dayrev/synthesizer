@@ -26,7 +26,7 @@ abstract class Provider
      *
      * @var int
      */
-    protected $max_text_length;
+    protected $max_text_length = 10000;
 
     /**
      * Gets an instance of the given provider.
