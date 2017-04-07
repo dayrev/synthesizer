@@ -10,13 +10,29 @@ class ProviderTest extends TestCase
     public function testGoogleSynthesizesExpectedContent()
     {
         $provider = Provider::instance('google');
-        $content = $provider->synthesize($this->getDataFileContents('text-long.txt'));
+        $content = $provider->synthesize($this->getDataFileContents('text.txt'));
 
         $this->assertInstanceOf(Content::class, $content);
-        $this->assertEquals(
-            explode("\n", $this->getDataFileContents('audio-google.txt')),
-            $content
-        );
+        $this->assertEquals($this->getSynthesizerExpectedContent(
+            explode("\n", $this->getDataFileContents('audio-google.txt'))
+        ), $content);
+    }
+
+    public function testIspeechSynthesizesExpectedContent()
+    {
+        $provider = Provider::instance('ispeech', ['apikey' => $this->config['ispeech_api_key']]);
+        $content = $provider->synthesize($this->getDataFileContents('text.txt'));
+
+        // Replace apikey value with placeholder.
+        $config = $this->config;
+        $content->audio = array_map(function ($url) use ($config) {
+            return str_replace($config['ispeech_api_key'], 'APIKEY', $url);
+        }, $content->audio);
+
+        $this->assertInstanceOf(Content::class, $content);
+        $this->assertEquals($this->getSynthesizerExpectedContent(
+            explode("\n", $this->getDataFileContents('audio-ispeech.txt'))
+        ), $content);
     }
 
     protected function getSynthesizerExpectedContent(array $audio): Content

@@ -1,0 +1,1 @@
+http://api.ispeech.org/api/rest?apikey=APIKEY&action=convert&text=Heisman+Trophy+finalists+Baker+Mayfield+and+Dede+Westbrook+connected+one+last+time+for+a+touchdown.+Joe+Mixon+emerged+with+big+plays+that+had+teammates+lifting+him+off+his+feet+in+celebration.+Samaje+Perine+put+his+name+in+Oklahoma%27s+record+books.
