@@ -55,23 +55,7 @@ abstract class Provider
      */
     public function __construct(array $data = [])
     {
-        $this->loadData($data);
-    }
-
-    /**
-     * Attempts to map array data to object properties.
-     *
-     * @param array $data Key value data to populate object properties.
-     *
-     * @return void
-     */
-    protected function loadData(array $data = [])
-    {
-        foreach ($data as $key => $value) {
-            if (property_exists($this, $key)) {
-                $this->$key = $value;
-            }
-        }
+        $this->params = $data;
     }
 
     /**
