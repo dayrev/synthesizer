@@ -1,0 +1,26 @@
+{
+    "name": "dayrev/synthesizer",
+    "type": "library",
+    "description": "Text-to-Speech Synthesizer",
+    "keywords": ["synthesizer", "tts", "text-to-speech", "php", "google", "ibm", "watson", "ispeech", "ivona"],
+    "homepage": "https://github.com/dayrev/synthesizer",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Daniel Sposito",
+            "homepage": "https://github.com/dsposito"
+        }
+    ],
+    "require": {
+        "php": "^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7"
+    },
+    "autoload": {
+        "psr-4": {"DayRev\\Synthesizer\\": "src/"}
+    },
+    "autoload-dev": {
+        "psr-4": {"DayRev\\Synthesizer\\Tests\\": "tests/"}
+    }
+}
