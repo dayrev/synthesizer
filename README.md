@@ -1,7 +1,9 @@
 # Synthesizer
+[![Build Status](https://travis-ci.org/dayrev/synthesizer.svg?branch=master)](https://travis-ci.org/dayrev/synthesizer)
+[![Coverage Status](https://coveralls.io/repos/github/dayrev/synthesizer/badge.svg?branch=master)](https://coveralls.io/github/dayrev/synthesizer?branch=master)
+[![Latest Stable Version](https://poser.pugx.org/dayrev/synthesizer/v/stable.png)](https://packagist.org/packages/dayrev/synthesizer)
 
 ## Overview
-
 Synthesizer provides an elegant interface to synthesize text to speech (audio url) using a variety of third-party providers.
 
 **Supported Providers:**
