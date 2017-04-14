@@ -9,6 +9,7 @@ Synthesizer provides an elegant interface to synthesize text to speech (audio ur
 **Supported Providers:**
 
  * Google
+ * IBM Watson
  * iSpeech
 
 ## Installation
@@ -25,7 +26,15 @@ Alternatively, add `"dayrev/synthesizer": "^1.0"` to your composer.json file.
 $synthesizer = DayRev\Synthesizer\Provider::instance('google');
 $content = $synthesizer->synthesize($text);
 
-$synthesizer = DayRev\Synthesizer\Provider::instance('ispeech', ['apikey' => 'YOUR_ISPEECH_API_KEY']);
+$synthesizer = DayRev\Synthesizer\Provider::instance('ibm', [
+    'username' => 'YOUR_IBM_USERNAME',
+    'password' => 'YOUR_IBM_PASSWORD',
+]);
+$content = $synthesizer->synthesize($text);
+
+$synthesizer = DayRev\Synthesizer\Provider::instance('ispeech', [
+    'apikey' => 'YOUR_ISPEECH_API_KEY'
+]);
 $content = $synthesizer->synthesize($text);
 ```
 
@@ -34,7 +43,7 @@ To run the test suite, run the following commands from the root directory:
 
 ```
 composer install
-vendor/bin/phpunit -d ispeech_api_key=YOUR_ISPEECH_API_KEY
+vendor/bin/phpunit -d ibm_username=YOUR_IBM_USERNAME -d ibm_password=YOUR_IBM_PASSWORD -d ispeech_api_key=YOUR_ISPEECH_API_KEY
 ```
 
 > **Note:** A valid iSpeech API key is required when running the integration tests.

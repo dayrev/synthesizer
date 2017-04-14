@@ -6,6 +6,8 @@ use DayRev\Synthesizer\Provider;
 
 /**
  * Driver class that handles iSpeech API interactions.
+ *
+ * @see http://www.ispeech.org/api/
  */
 class Ispeech extends Provider
 {
