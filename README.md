@@ -8,6 +8,7 @@ Synthesizer provides an elegant interface to synthesize text to speech (audio ur
 
 **Supported Providers:**
 
+ * Amazon Polly
  * Google
  * IBM Watson
  * iSpeech
@@ -23,6 +24,12 @@ Alternatively, add `"dayrev/synthesizer": "^1.0"` to your composer.json file.
 
 ## Usage
 ```php
+$provider = Provider::instance('amazon', [
+    'key' => 'YOUR_AMAZON_API_KEY',
+    'secret' => 'YOUR_AMAZON_API_SECRET',
+]);
+$content = $synthesizer->synthesize($text);
+
 $synthesizer = DayRev\Synthesizer\Provider::instance('google');
 $content = $synthesizer->synthesize($text);
 
@@ -43,7 +50,7 @@ To run the test suite, run the following commands from the root directory:
 
 ```
 composer install
-vendor/bin/phpunit -d ibm_username=YOUR_IBM_USERNAME -d ibm_password=YOUR_IBM_PASSWORD -d ispeech_api_key=YOUR_ISPEECH_API_KEY
+vendor/bin/phpunit -d ibm_username=YOUR_IBM_USERNAME -d ibm_password=YOUR_IBM_PASSWORD -d ispeech_api_key=YOUR_ISPEECH_API_KEY -d amazon_api_key=YOUR_AMAZON_API_KEY -d amazon_api_secret=YOUR_AMAZON_API_SECRET
 ```
 
-> **Note:** A valid iSpeech API key is required when running the integration tests.
+> **Note:** Provider keys and values are required when running the integration tests but the values don't have to be valid.
