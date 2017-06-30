@@ -7,6 +7,25 @@ use DayRev\Synthesizer\Provider;
 
 class ProviderTest extends TestCase
 {
+    public function testAmazonSynthesizesExpectedContent()
+    {
+        $provider = Provider::instance('amazon', [
+            'key' => $this->config['amazon_api_key'],
+            'secret' => $this->config['amazon_api_secret'],
+        ]);
+        $content = $provider->synthesize($this->getDataFileContents('text.txt'));
+
+        // Pre-signed URL is always unique. Parse params to test a few of them.
+        parse_str(
+            parse_url($content->audio[0], PHP_URL_QUERY),
+            $params
+        );
+
+        $this->assertInstanceOf(Content::class, $content);
+        $this->assertContains($this->config['amazon_api_key'], $params['X-Amz-Credential']);
+        $this->assertEquals($this->getDataFileContents('text.txt'), $params['Text']);
+    }
+
     public function testGoogleSynthesizesExpectedContent()
     {
         $provider = Provider::instance('google');
