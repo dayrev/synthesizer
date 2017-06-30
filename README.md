@@ -53,4 +53,4 @@ composer install
 vendor/bin/phpunit -d ibm_username=YOUR_IBM_USERNAME -d ibm_password=YOUR_IBM_PASSWORD -d ispeech_api_key=YOUR_ISPEECH_API_KEY -d amazon_api_key=YOUR_AMAZON_API_KEY -d amazon_api_secret=YOUR_AMAZON_API_SECRET
 ```
 
-> **Note:** Provider keys and values are required when running the integration tests but the values don't have to be valid.
+> **Note:** API credentials are required when running the integration tests but the values don't have to be valid.
