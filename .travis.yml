@@ -12,7 +12,7 @@ before_script:
 # Check code formatting, run tests and generate test coverage report.
 script:
   - vendor/bin/phpcs ./src ./tests --extensions=php --standard=PSR2
-  - vendor/bin/phpunit -d ibm_username=IBM_USERNAME -d ibm_password=IBM_PASSWORD -d ispeech_api_key=ISPEECH_API_KEY --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpunit -d ibm_username=IBM_USERNAME -d ibm_password=IBM_PASSWORD -d ispeech_api_key=ISPEECH_API_KEY -d amazon_api_key=AMAZON_API_KEY -d amazon_api_secret=AMAZON_API_SECRET --coverage-clover build/logs/clover.xml
 
 # Submit test coverage report to Coveralls.
 after_success:
