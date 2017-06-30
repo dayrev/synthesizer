@@ -53,7 +53,7 @@ class Amazon extends Provider
 
         return $client->createSynthesizeSpeechPreSignedUrl([
             'OutputFormat' => $this->params['OutputFormat'] ?? 'mp3',
-            'SampleRate' => $this->params['SampleRate'] ?? '8000',
+            'SampleRate' => $this->params['SampleRate'] ?? '22050',
             'Text' => $this->params['text'],
             'TextType' => $this->params['TextType'] ?? 'text',
             'VoiceId' => $this->params['VoiceId'] ?? 'Joanna',
